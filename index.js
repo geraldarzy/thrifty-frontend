@@ -35,7 +35,25 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     
     };
-    
+    function signup(email,password,password_confirmation){
+        fetch("http://localhost:3000/users",{
+            method:'POST',
+            headers:{
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                user: {
+                    email: `${email}`,
+                    password: `${password}`,
+                    password_confirmation: `${password_confirmation}`
+                }
+            })
+        }).then(resp=>resp.json()).then(json=>{
+            let user = new User(json.id,json.email);
+            console.log(user);
+        })
+    }
    
 });
 
