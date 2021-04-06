@@ -30,8 +30,17 @@ document.addEventListener('DOMContentLoaded',()=>{
     function showSignupForm(){
         let form = createAccountForm();
         document.body.append(form)
-        form.addEventListener('submit',()=>{
-            console.log('penis')
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            console.log(event);
+            console.log(event.target.email.value);
+            console.log(event.target.password.value);
+            console.log(event.target.password_confirmation.value);
+            let email = event.target.email.value;
+            let password = event.target.password.value;
+            let password_confirmation= event.target.password_confirmation.value;
+            signup(email,password,password_confirmation);
+            form.reset();
         });
     
     };
