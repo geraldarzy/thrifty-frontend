@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     // ------navbar stuff
     let navAccount = document.getElementById('navAccount')
     navAccount.addEventListener('click', Showpage.account_page)
+    let navHome = document.getElementById('navHome')
+    navHome.addEventListener('click', Showpage.logged_in_home)
     //---------------------------------------------------------------------------------------------------
     
     function deleteAllCookies() {
