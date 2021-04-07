@@ -31,6 +31,7 @@ class Showpage{
     }
 
     static account_page(){
+        Showpage.clearPage();
         let div = document.createElement('div');
         div.classList.add('welcome')
         div.innerHTML=
