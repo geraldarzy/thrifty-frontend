@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     let navHome = document.getElementById('navHome')
     navHome.addEventListener('click', Showpage.logged_in_home)
     //---------------------------------------------------------------------------------------------------
-    
+    let d = document.getElementById('deleteCookies');
+    d.addEventListener('click',deleteAllCookies)
     function deleteAllCookies() {
         var cookies = document.cookie.split(";");
     
