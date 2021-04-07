@@ -1,5 +1,14 @@
 class Session{
 
+    static getCookie(){
+        let cookie = document.cookie.split('; ').reduce((prev, current) => {
+            const [name, value] = current.split('=');
+            prev[name] = value;
+            return prev
+        }, {});
+        return cookie
+    }
+
     static signup(email,password,password_confirmation){
         fetch("http://localhost:3000/users",{
             method:'POST',
