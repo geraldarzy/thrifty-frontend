@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     //---------- user form used to create a new account or to sign in
     function createUserForm(){
         let form = document.createElement('form')
+        form.id = 'user-form'
         form.innerHTML=
         `
         <span id = 'userformEmail'>
@@ -105,8 +106,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             })
         }).then(resp=>resp.json()).then(json=>{
             let user = new User(json.id,json.email);
-            console.log('signup post req response');
-            console.log(user);
+            document.cookie = `logged_in = true`
+            document.cookie = `id = ${user.id}`
+            document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
+            // delete elements on page and show store elements
+            leaveHomePage();
+            //take care of the error showings
         })
     }
 
@@ -129,7 +134,16 @@ document.addEventListener('DOMContentLoaded',()=>{
             document.cookie = `logged_in = true`
             document.cookie = `id = ${user.id}`
             document.cookie = `email = ${user.id}` //store id and email in the browsers cookies and say that you are logged in
+            // delete elements on page and show store elements
+            leaveHomePage();
             //take care of the error showings
         }).catch(error=>console.log(error))
     }
+    function leaveHomePage(){
+        let homepage = document.getElementsByClassName('welcome')[0];
+        let userform = document.getElementById('user-form');
+        userform.remove();
+        homepage.remove();
+    }
+    
 });
