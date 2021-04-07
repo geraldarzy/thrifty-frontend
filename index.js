@@ -3,28 +3,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         console.log('domcontentloaded')
         console.log(json)
     })
-    let welcome = document.getElementsByClassName('welcome')[0];
-    let signinbtn = document.getElementById("signinbtn")
-    let signupbtn = document.getElementById("signupbtn")
-    signupbtn.addEventListener('click',signmeup)
-    signinbtn.addEventListener('click',signmein)
+    // ------navbar stuff
+    let navAccount = document.getElementById('navAccount')
+    navAccount.addEventListener('click', Showpage.account_page)
+    //---------------------------------------------------------------------------------------------------
     
-    //--------------------- handling of signmeup click
-    function signmeup(){
-        let welcome = document.getElementsByClassName('welcome')[0];
-        //make it so that the form is infront of the welcome and you cannot click the welcome page
-        //you have to exit the form before you can click the welcome page
-        //or
-        //welcome.remove();
-        Modals.showSignupForm();
-    };
-    //---------- user form used to create a new account or to sign in
-    
-    // ------------------handling sign me in click
-    function signmein(){
-        Modals.showSignInForm();
-
-    };
     let clearcookies = document.getElementById('clearcookies');
     clearcookies.addEventListener('click',deleteAllCookies)
     function deleteAllCookies() {

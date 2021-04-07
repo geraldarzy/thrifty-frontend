@@ -19,8 +19,26 @@ class Showpage{
                 <button class = 'btn btn-light mx-2' > Shop Womens </button>
             </div>
         </div>
-        `
+        `;
         document.body.append(div)
+    }
+
+    static account_page(){
+        let div = document.createElement('div');
+        div.classList.add('welcome')
+        div.innerHTML=
+        `
+        <h1>Welcome to Thrifty.</h1>
+        <button id = "signupbtn" class ='btn btn-light'>Sign Up</button>
+        <button id = "signinbtn" class ='btn btn-light'>Sign In</button>
+        <button id = "clearcookies" class ='btn btn-light'>Clear Cookies</button>
+        `;
+        document.body.append(div);
+        let welcome = document.getElementsByClassName('welcome')[0];
+        let signinbtn = document.getElementById("signinbtn")
+        let signupbtn = document.getElementById("signupbtn")
+        signupbtn.addEventListener('click',Modals.showSignupForm)
+        signinbtn.addEventListener('click',Modals.showSignInForm)
     }
     static clearPage(){
         for(let i = 0;i<(document.body.childElementCount);i++){
