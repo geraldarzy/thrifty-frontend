@@ -25,13 +25,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         Modals.showSignInForm();
 
     };
-
-    function leaveHomePage(){
-        let homepage = document.getElementsByClassName('welcome')[0];
-        let userform = document.getElementById('user-form');
-        userform.remove();
-        homepage.remove();
-    }
     let clearcookies = document.getElementById('clearcookies');
     clearcookies.addEventListener('click',deleteAllCookies)
     function deleteAllCookies() {

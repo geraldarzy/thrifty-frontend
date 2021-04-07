@@ -90,7 +90,7 @@ function signup(email,password,password_confirmation){
         document.cookie = `id = ${user.id}`
         document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
         // delete elements on page and show store elements
-        leaveHomePage();
+        Showpage.logged_in_home();
         //take care of the error showings
     })
 }
@@ -115,7 +115,7 @@ function signin(email,password){
         document.cookie = `id = ${user.id}`
         document.cookie = `email = ${user.id}` //store id and email in the browsers cookies and say that you are logged in
         // delete elements on page and show store elements
-        leaveHomePage();
+        Showpage.logged_in_home();
         //take care of the error showings
     }).catch(error=>console.log(error))
 }
