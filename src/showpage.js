@@ -8,7 +8,7 @@ class Showpage{
             document.body.children[1].remove(); //always remove index 1 because next element goes to index 1 when removing 1
         }
     }
-    
+
     static logged_in_home(){
         Showpage.clearPage();
         let div = document.createElement('div');
@@ -38,7 +38,6 @@ class Showpage{
         <h1>Welcome to Thrifty.</h1>
         <button id = "signupbtn" class ='btn btn-light'>Sign Up</button>
         <button id = "signinbtn" class ='btn btn-light'>Sign In</button>
-        <button id = "clearcookies" class ='btn btn-light'>Clear Cookies</button>
         `;
         document.body.append(div);
         let welcome = document.getElementsByClassName('welcome')[0];

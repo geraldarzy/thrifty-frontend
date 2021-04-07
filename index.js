@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     navAccount.addEventListener('click', Showpage.account_page)
     //---------------------------------------------------------------------------------------------------
     
-    let clearcookies = document.getElementById('clearcookies');
-    clearcookies.addEventListener('click',deleteAllCookies)
     function deleteAllCookies() {
         var cookies = document.cookie.split(";");
     
