@@ -8,11 +8,6 @@ class Modals{
         document.body.append(form)
         form.addEventListener('submit',(event)=>{
             event.preventDefault();
-            console.log('show sign up form');
-            console.log(event);
-            console.log(event.target.email.value);
-            console.log(event.target.password.value);
-            console.log(event.target.password_confirmation.value);
             let email = event.target.email.value;
             let password = event.target.password.value;
             let password_confirmation= event.target.password_confirmation.value;
@@ -29,10 +24,6 @@ class Modals{
         document.body.append(form)
         form.addEventListener('submit',(event)=>{
             event.preventDefault();
-            console.log('show sign in form');
-            console.log(event);
-            console.log(event.target.email.value);
-            console.log(event.target.password.value);
             let email = event.target.email.value;
             let password = event.target.password.value;
             Session.signin(email,password);
