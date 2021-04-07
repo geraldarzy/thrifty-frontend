@@ -53,7 +53,7 @@ class Session{
             let user = new User(json.session.id,json.session.email); //make new user with info
             document.cookie = `logged_in = true`
             document.cookie = `id = ${user.id}`
-            document.cookie = `email = ${user.id}` //store id and email in the browsers cookies and say that you are logged in
+            document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
             // delete elements on page and show store elements
             Showpage.logged_in_home();
             //take care of the error showings
