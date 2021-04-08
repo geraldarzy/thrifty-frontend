@@ -32,8 +32,8 @@ class Showpage{
         let shopallbtn= document.getElementById('shopallbtn')
         let shopwomensbtn= document.getElementById('shopwomensbtn')
 
-        shopmensbtn.addEventListener('click', Showpage.shopAllPage)
-        shopallbtn.addEventListener('click', Showpage.shopMensPage)
+        shopmensbtn.addEventListener('click', Showpage.shopMensPage)
+        shopallbtn.addEventListener('click', Showpage.shopAllPage)
         shopwomensbtn.addEventListener('click', Showpage.shopWomensPage)
     }
 
