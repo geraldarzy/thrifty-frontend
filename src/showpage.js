@@ -58,8 +58,10 @@ class Showpage{
         }
     }
     
-    static shopAllPage(){
-        let items = Item.getItems();
+    static shopAllPage = async() => {
+        let items = await Item.getItems();
+        await fetch('http://localhost:3000/items') //idk why this is needed, let items does not await properly unless the fetch is also awaited
         Item.displayAllItems(items);
     }
+
 }
