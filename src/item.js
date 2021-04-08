@@ -11,7 +11,7 @@ class Item{
         let items = [];
         fetch('http://localhost:3000/items').then(resp=>resp.json()).then(json=>{
             for(let i in json){
-                let item = new Store(json[i].name, json[i].website)
+                let item = new Item(json[i].name, json[i].price, json[i].size, json[i].color, json[i].picture)
                 items.push(item)
             }
         })
