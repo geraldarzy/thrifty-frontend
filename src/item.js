@@ -1,27 +1,28 @@
 class Item{
-    constructor(name,price,size,color,picture){
+    constructor(name,price,size,color,picture,store,sex){
         this.name = name;
         this.price = price;
         this.size = size;
         this.color = color;
         this.picture = picture;
+        this.store = store;
+        this.sex = sex;
     }
 
-    static getItems(){
+    static getItems = () =>{
         let items = [];
         fetch('http://localhost:3000/items').then(resp=>resp.json()).then(json=>{
-            for(let i in json){
-                let item = new Item(json[i].name, json[i].price, json[i].size, json[i].color, json[i].picture)
-                items.push(item)
+            for(let item of json){
+                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex)
+                items.push(i)
             }
         })
         return items;
     }
 
 
-    static displayAllItems(items){
-        // let items = Item.getItems()
-        // console.log(this.getItems()) why does this not work?!?!?! i spent 2 hours trying to figure that out
+    static displayAllItems = (items)=>{
+        // let items = Item.getItems();
         let div1 = document.createElement('div');
         let div2 = document.createElement('div');
         let div3 = document.createElement('div');
@@ -63,4 +64,18 @@ class Item{
         document.body.append(div3);
         document.body.append(div4);
     }
+
+    // static getMensItems(){
+    //     let items = [];
+    //     fetch('http://localhost:3000/sexes/1').then(resp=>resp.json()).then(json=>{
+    //         for(let i in json){
+    //             let item = new Item(json[i].name, json[i].price, json[i].size, json[i].color, json[i].picture)
+    //             items.push(item)
+    //         }
+    //     })
+    //     return items;
+    // }
+    // static displayMensItems(items){
+
+    // }
 }
