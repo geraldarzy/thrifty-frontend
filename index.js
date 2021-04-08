@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     navAccount.addEventListener('click', Showpage.account_page)
     let navHome = document.getElementById('navHome')
     navHome.addEventListener('click', Showpage.logged_in_home)
+    let navLogo = document.getElementById('navLogo')
+    navLogo.addEventListener('click', Showpage.logged_in_home)
     //---------------------------------------------------------------------------------------------------
     let d = document.getElementById('deleteCookies');
     d.addEventListener('click',deleteAllCookies)
