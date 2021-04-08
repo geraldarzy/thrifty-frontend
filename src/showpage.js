@@ -4,8 +4,14 @@ class Showpage{
     }
 
     static clearPage(){
-        for(let i = 0;i<(document.body.childElementCount);i++){
-            document.body.children[1].remove(); //always remove index 1 because next element goes to index 1 when removing 1
+        // for(let i = 0;i<(document.body.childElementCount);i++){
+        //     console.log(i)
+        //     console.log(document.body.childElementCount)
+        //     debugger;
+        //     document.body.children[1].remove(); //always remove index 1 because next element goes to index 1 when removing 1
+        // }
+        while(document.body.childElementCount>1){
+            document.body.children[1].remove()
         }
     }
 
