@@ -9,9 +9,9 @@ class Item{
         this.sex = sex;
     }
 
-    static getItems = () =>{
+    static getItems = (path = 'items') =>{
         let items = [];
-        fetch('http://localhost:3000/items').then(resp=>resp.json()).then(json=>{
+        fetch(`http://localhost:3000/${path}`).then(resp=>resp.json()).then(json=>{
             for(let item of json){
                 let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex)
                 items.push(i)
