@@ -57,4 +57,9 @@ class Showpage{
             signinbtn.addEventListener('click',Modals.showSignInForm)
         }
     }
+    
+    static shopAllPage(){
+        let items = Item.getItems();
+        Item.displayAllItems(items);
+    }
 }
