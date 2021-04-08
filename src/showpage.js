@@ -32,9 +32,9 @@ class Showpage{
         let shopallbtn= document.getElementById('shopallbtn')
         let shopwomensbtn= document.getElementById('shopwomensbtn')
 
-        shopmensbtn.addEventListener('click', )
-        shopallbtn.addEventListener('click', )
-        shopwomensbtn.addEventListener('click', )
+        shopmensbtn.addEventListener('click', Showpage.shopAllPage)
+        shopallbtn.addEventListener('click', Showpage.shopMensPage)
+        shopwomensbtn.addEventListener('click', Showpage.shopWomensPage)
     }
 
     static account_page(){
@@ -70,5 +70,10 @@ class Showpage{
         await fetch('http://localhost:3000/items') //idk why this is needed, let items does not await properly unless the fetch is also awaited
         Item.displayAllItems(items);
     }
-
+    static shopMensPage(){
+        console.log('showmens')
+    }
+    static shopWomensPage(){
+        console.log('show womens')
+    }
 }
