@@ -1,0 +1,28 @@
+.inline{
+    display: inline;
+}
+.blurme{
+    filter: blur(3px)
+}
+.centerText{
+    text-align: center;
+}
+.centerInside{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centerMe{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+.bhavinsbutton{
+    top:50%;
+    left: 50%;
+    margin: 0;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position:absolute;
+}
