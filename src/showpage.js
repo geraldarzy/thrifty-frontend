@@ -21,13 +21,20 @@ class Showpage{
         <div class="card-img-overlay">
             <h1 class="card-title centerInside">Thrifty.</h1> 
             <div class = 'centerInside'>
-                <button class = 'btn btn-light mx-2' > Shop Mens </button>
-                <button class = 'btn btn-light mx-2' > Shop All </button>
-                <button class = 'btn btn-light mx-2' > Shop Womens </button>
+                <button class = 'btn btn-light mx-2' id= 'shopmensbtn'> Shop Mens </button>
+                <button class = 'btn btn-light mx-2' id= 'shopallbtn'> Shop All </button>
+                <button class = 'btn btn-light mx-2' id= 'shopwomensbtn'> Shop Womens </button>
             </div>
         </div>
         `;
         document.body.append(div)
+        let shopmensbtn= document.getElementById('shopmensbtn')
+        let shopallbtn= document.getElementById('shopallbtn')
+        let shopwomensbtn= document.getElementById('shopwomensbtn')
+
+        shopmensbtn.addEventListener('click', )
+        shopallbtn.addEventListener('click', )
+        shopwomensbtn.addEventListener('click', )
     }
 
     static account_page(){
