@@ -76,10 +76,14 @@ class Showpage{
         await fetch('http://localhost:3000/items') //idk why this is needed, let items does not await properly unless the fetch is also awaited
         Item.displayAllItems(items);
     }
-    static shopMensPage(){
-        console.log('showmens')
+    static shopMensPage= async() => {
+        let items = await Item.getItems('sexes/1');
+        await fetch('http://localhost:3000/items')
+        Item.displayAllItems(items);
     }
-    static shopWomensPage(){
-        console.log('show womens')
+    static shopWomensPage = async() => {
+        let items = await Item.getItems('sexes/2');
+        await fetch('http://localhost:3000/items')
+        Item.displayAllItems(items);
     }
 }
