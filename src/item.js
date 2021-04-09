@@ -46,17 +46,33 @@ class Item{
             }else if(i >= 12 && i <= 15){
                 curr = div4;
             };
-            curr.innerHTML+=
+            let newdiv = document.createElement('div')
+            newdiv.classList.add("card", "col-sm", "mx-2");
+            newdiv.style.width = '18rem';
+            newdiv.innerHTML =
             `
-            <div class="card col-sm mx-2" style="width: 18rem;">
                 <img class="card-img-top" width="200 rem" height="200 rem" alt="" src="${item.picture}">
                 <div class="card-body">
                     <h5 class="card-title">Item Name</h5>
                     <h5 class="card-title">$${item.price}</h5>
-                    <button class="btn btn-primary" id='item-${item.id}' name='item-${item.id}'>Add to Cart</button>
                 </div>
-            </div>
             `
+            curr.append(newdiv);
+            // let button = curr.children[curr.childElementCount - 1].children[1].children[2]
+            // button.addEventListener('click',(event)=>console.log(event.target.id))
+            // button.name =`${item.id}`
+            // console.log(`added to ${button.id}`)
+            //-------------
+            // div.innerHTML+= is basically copying array into a new array instead of appending/pushing to the last index. Therefore the event listeners are lost in the proccess
+            //-------------
+            let addbuttontome = curr.children[curr.childElementCount-1].children[1]
+            let button = document.createElement('button');
+            button.classList.add('btn','btn-primary');
+            button.id=`item-${item.id}`;
+            button.name=`item-${item.id}`;
+            button.innerText='Add to Cart'
+            button.addEventListener('click',this.addToCart);
+            addbuttontome.append(button)
             i++;
         }
         Showpage.clearPage();
