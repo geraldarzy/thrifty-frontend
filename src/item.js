@@ -1,5 +1,5 @@
 class Item{
-    constructor(name,price,size,color,picture,store,sex){
+    constructor(name,price,size,color,picture,store,sex,id){
         this.name = name;
         this.price = price;
         this.size = size;
@@ -7,13 +7,14 @@ class Item{
         this.picture = picture;
         this.store = store;
         this.sex = sex;
+        this.id = id
     }
 
     static getItems = (path = 'items') =>{
         let items = [];
         fetch(`http://localhost:3000/${path}`).then(resp=>resp.json()).then(json=>{
             for(let item of json){
-                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex)
+                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex,item.id)
                 items.push(i)
             }
         })
