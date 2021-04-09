@@ -95,4 +95,26 @@ class Item{
     // static displayMensItems(items){
 
     // }
+    static addToCart = (event)=>{
+        let item_id = parseInt(event.target.name.split('-')[1]);
+        console.log(item_id)
+        let user_id = Session.getCookie().id
+        fetch('http://localhost:3000/cart_items',{
+            method:'POST',
+            headers:{
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                cart_item: {
+                    user_id: `${user_id}`,
+                    item_id: `${item_id}`
+                }
+            })
+        }).then(resp=>resp.json()).then(json=>{
+            //left off here
+            //show that u added it to cart
+            //item.name has been added to cart. pop up modal to briefly show cart?
+        });
+    }
 }
