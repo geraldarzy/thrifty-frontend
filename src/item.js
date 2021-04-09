@@ -53,7 +53,7 @@ class Item{
                 <div class="card-body">
                     <h5 class="card-title">Item Name</h5>
                     <h5 class="card-title">$${item.price}</h5>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" id='item-${item.id}' name='item-${item.id}'>Add to Cart</button>
                 </div>
             </div>
             `
