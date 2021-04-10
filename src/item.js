@@ -71,6 +71,8 @@ class Item{
             button.id=`item-${item.id}`;
             button.name=`item-${item.id}`;
             button.innerText='Add to Cart'
+            button.setAttribute('data-target','#addedToCart-modal')
+            button.setAttribute('data-toggle','modal')
             button.addEventListener('click',this.addToCart);
             addbuttontome.append(button)
             i++;
@@ -80,6 +82,7 @@ class Item{
         document.body.append(div2);
         document.body.append(div3);
         document.body.append(div4);
+
     }
 
     // static getMensItems(){
