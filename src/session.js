@@ -29,7 +29,7 @@ class Session{
             document.cookie = `id = ${user.id}`
             document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
             // delete elements on page and show store elements
-            Showpage.logged_in_home();
+            $('#signup-form').modal('hide'); //hide signup form after signusucces
             //take care of the error showings
         })
     }
@@ -68,6 +68,6 @@ class Session{
             var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
         }
-        $('#loggedInInfo').modal('hide');
+        $('#loggedInInfo').modal('hide'); //hide modal after logging out
     }
 }
