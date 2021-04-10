@@ -24,6 +24,7 @@ class Item{
 
     static displayAllItems = (items)=>{
         // let items = Item.getItems();
+        Showpage.clearPage();
         let div1 = document.createElement('div');
         let div2 = document.createElement('div');
         let div3 = document.createElement('div');
@@ -75,9 +76,10 @@ class Item{
             button.setAttribute('data-toggle','modal')
             button.addEventListener('click',this.addToCart);
             addbuttontome.append(button)
+            Modals.addAddItemToCartModal(item);
             i++;
         }
-        Showpage.clearPage();
+        
         document.body.append(div1);
         document.body.append(div2);
         document.body.append(div3);
