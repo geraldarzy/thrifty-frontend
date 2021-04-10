@@ -44,26 +44,14 @@ class Showpage{
     }
 
     static account_page(){
-        Showpage.clearPage();
         let cookie = Session.getCookie();
         if(cookie.logged_in === 'true'){
-            let div = document.createElement('div')
-            div.innerHTML = 
-            `
-            <h1>Show Account Info and Stuff</h1>
-            `
-            document.body.append(div)
+            Modals.addAccountInfoModal();
+            $('#loggedInInfo').modal('show');
+            document.getElementById('logMeOutButton').addEventListener('click',Session.logOut)
         } else {
-            let div = document.createElement('div');
-            div.classList.add('welcome')
-            div.innerHTML=
-            `
-            <h1>Welcome to Thrifty.</h1>
-            <button id = "signupbtn" class ='btn btn-light'>Sign Up</button>
-            <button id = "signinbtn" class ='btn btn-light'>Sign In</button>
-            `;
-            document.body.append(div);
-            let welcome = document.getElementsByClassName('welcome')[0];
+            Modals.addSignInUpModal();
+            $('#signinupModal').modal('show');
             let signinbtn = document.getElementById("signinbtn")
             let signupbtn = document.getElementById("signupbtn")
             signupbtn.addEventListener('click',Modals.showSignupForm)
