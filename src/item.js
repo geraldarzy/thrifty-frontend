@@ -54,8 +54,11 @@ class Item{
             `
                 <img class="card-img-top" width="200 rem" height="200 rem" alt="" src="${item.picture}">
                 <div class="card-body">
-                    <h5 class="card-title">Item Name</h5>
+                    <h5 class="card-title">${item.name}</h5>
                     <h5 class="card-title">$${item.price}</h5>
+                    <a href="${item.store.website}">
+                        <p>${item.store.name}</p>
+                    </a>
                 </div>
             `
             curr.append(newdiv);
