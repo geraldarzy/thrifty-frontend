@@ -120,6 +120,11 @@ class Item{
             //left off here
             //show that u added it to cart
             //item.name has been added to cart. pop up modal to briefly show cart?
+            let modal = document.getElementById('addItemToCartModal');
+            modal.children[0].innerText =json["item"].name;
+            modal.children[1].src =json["item"].picture;
+            //maybe show how many is now in cart?
+            console.log(json)
         });
     }
 }
