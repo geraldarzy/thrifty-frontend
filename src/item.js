@@ -87,6 +87,26 @@ class Item{
         document.body.append(div2);
         document.body.append(div3);
         document.body.append(div4);
+        let nav = document.createElement('nav')
+        nav.classList.add('centerMe');
+        nav.innerHTML=`
+        <ul class="pagination centerMe">
+          <li class="page-item centerMe">
+            <button class="btn btn-outline-secondary" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </button>
+          </li>
+          <li class="page-item centerMe"><button class="btn btn-outline-secondary" href="#">1</button></li>
+          <li class="page-item centerMe"><button class="btn btn-outline-secondary" href="#">2</button></li>
+          <li class="page-item centerMe"><button class="btn btn-outline-secondary" href="#">3</button></li>
+          <li class="page-item centerMe">
+            <button class="btn btn-outline-secondary " href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </button>
+          </li>
+        </ul>
+        `
+        document.body.append(nav)
 
     }
 
