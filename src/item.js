@@ -75,8 +75,6 @@ class Item{
             button.id=`item-${item.id}`;
             button.name=`item-${item.id}`;
             button.innerText='Add to Cart'
-            button.setAttribute('data-target','#addedToCart-modal')
-            button.setAttribute('data-toggle','modal')
             button.addEventListener('click',this.addToCart);
             addbuttontome.append(button)
             i++;
@@ -127,27 +125,34 @@ class Item{
         let item_id = parseInt(event.target.name.split('-')[1]);
         console.log(item_id)
         let user_id = Session.getCookie().id
-        fetch('http://localhost:3000/cart_items',{
-            method:'POST',
-            headers:{
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                cart_item: {
-                    user_id: `${user_id}`,
-                    item_id: `${item_id}`
-                }
-            })
-        }).then(resp=>resp.json()).then(json=>{
-            //left off here
-            //show that u added it to cart
-            //item.name has been added to cart. pop up modal to briefly show cart?
-            let modal = document.getElementById('addItemToCartModal');
-            modal.children[0].innerText =json["item"].name;
-            modal.children[1].src =json["item"].picture;
-            //maybe show how many is now in cart?
-            console.log(json)
-        });
+        if(user_id){
+            console.log('hit inside')
+            fetch('http://localhost:3000/cart_items',{
+                method:'POST',
+                headers:{
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    cart_item: {
+                        user_id: `${user_id}`,
+                        item_id: `${item_id}`
+                    }
+                })
+            }).then(resp=>resp.json()).then(json=>{
+                //left off here
+                //show that u added it to cart
+                //item.name has been added to cart. pop up modal to briefly show cart?
+                let modal = document.getElementById('addItemToCartModal');
+                modal.children[0].innerText =json["item"].name;
+                modal.children[1].src =json["item"].picture;
+                $('#addedToCart-modal').modal('show');
+                //maybe show how many is now in cart?
+                console.log(json)
+            });
+        } else{
+            console.log('hitoutside')
+            Showpage.account_page();
+        }
     }
 }
