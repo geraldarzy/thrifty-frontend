@@ -32,11 +32,25 @@ class Modals{
     
     };
     static showSignInForm(){
+        $('#signinupModal').modal('hide');
         let form = createUserForm();
-        form.children[6].value = 'Sign In'
-        form.children[4].remove() //change the form to sign in before displaying it
-        let modal = document.getElementById('signinupModal');
-        modal.children[0].children[0].children[1].append(form)
+        let div = document.createElement('div');
+        div.classList.add('modal','fade');
+        div.id='signin-form';
+        div.innerHTML=`
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class = "modal-content">
+                <button type="button" class="btn btn-outline-info" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+            </div>
+        
+        </div>`
+        div.children[0].children[0].append(form);
+        document.body.append(div);
+        $('#signin-form').modal('show');
+        
+        document.getElementById('submitUserForm').value='Sign In'
+        document.getElementById('userformConfirm').remove() //change the form to sign in before displaying it
         form.addEventListener('submit',(event)=>{
             event.preventDefault();
             let email = event.target.email.value;
@@ -162,7 +176,7 @@ function createUserForm(){
                         <label for="password_confirm">Password Confirm</label>
                     </div>
                     <div class = "centerInside">
-                        <input type='submit' value='Create Account' class='btn btn-outline-dark centerMe'>
+                        <input id='submitUserForm' type='submit' value='Create Account' class='btn btn-outline-dark centerMe'>
                     </div>
     `
     return form
