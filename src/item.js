@@ -76,9 +76,9 @@ class Item{
             button.setAttribute('data-toggle','modal')
             button.addEventListener('click',this.addToCart);
             addbuttontome.append(button)
-            Modals.addAddItemToCartModal(item);
             i++;
         }
+        Modals.addAddItemToCartModal();
         
         document.body.append(div1);
         document.body.append(div2);
