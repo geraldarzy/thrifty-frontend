@@ -31,6 +31,36 @@ class Modals{
             //sign in user after signing up
         });
     };
+
+    static addAddItemToCartModal = (item)=>{
+
+        //------------------------- add modal
+        let modal = document.createElement('div');
+        modal.classList.add('modal','fade');
+        modal.id='addedToCart-modal';
+        modal.innerHTML=`
+        <div class="modal-dialog">
+            <div class = "modal-content">
+                
+                <div class="modal-header">
+                    <h3 class="centerInside">Success!</h3>
+                </div>
+                <div class="modal-content">
+                    <h5 class="centerInside">${item.name}</h5>
+                    <h5 class="centerInside">$${item.price}</h5>
+                    <h4 class="centerInside">Added to cart</h4>
+                </div>
+                <div class="modal-footer">
+                <button id="hoola" type="button" class="btn btn-default" data-dismiss="modal">Checkout</button>
+                <button id="hoola" type="button" class="btn btn-default" data-dismiss="modal">Keep Shopping</button>
+                </div>
+            </div>
+        
+        </div>
+        `
+        document.body.append(modal)
+        //------------------------- add modal
+    }
 }
 function createUserForm(){
     let form = document.createElement('form')
