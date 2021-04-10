@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded',()=>{
-  
     // ------navbar stuff
     let navAccount = document.getElementById('navAccount')
     navAccount.addEventListener('click', Showpage.account_page)
@@ -8,6 +7,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     let navLogo = document.getElementById('navLogo')
     navLogo.addEventListener('click', Showpage.logged_in_home)
     //---------------------------------------------------------------------------------------------------
+    
+    //---- load home page right away
+    Showpage.logged_in_home();
 });
 /*
 EDGE CASES TO TAKE CARE OF
