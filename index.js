@@ -24,3 +24,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     }
 });
+/*
+EDGE CASES TO TAKE CARE OF
+- When signup fails show error of why failed (duplicate emails? bademail? bad password?)
+- When Log in fails
+- when there are more than 16 items on page
+- When add to cart fails
+
+*/
