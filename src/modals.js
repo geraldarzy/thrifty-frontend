@@ -24,7 +24,7 @@ class Modals{
             event.preventDefault();
             let email = event.target.email.value;
             let password = event.target.password.value;
-            let password_confirmation= event.target.password_confirmation.value;
+            let password_confirmation= event.target.password_confirm.value;
             Session.signup(email,password,password_confirmation);
             //take care of failed validation edge case
             //sign in user after signing up
