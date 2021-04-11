@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     navHome.addEventListener('click', Showpage.logged_in_home)
     let navLogo = document.getElementById('navLogo')
     navLogo.addEventListener('click', Showpage.logged_in_home)
+    let navCart = document.getElementById('navCart')
+    navCart.addEventListener('click', Showpage.cartPage)
     //---------------------------------------------------------------------------------------------------
     
     //---- load home page right away
