@@ -156,6 +156,74 @@ class Modals{
         document.body.append(modal)
         //------------------------- add modal
     }
+
+    static makeCartModal=(items)=>{
+        let div = document.createElement('div')
+        div.classList.add('modal','fade');
+        div.id="cartModal"
+        div.innerHTML = `
+        <div class="modal-dialog">
+            <div class = "modal-content">
+                    
+                <div class="modal-header">
+                    <h1>Cart</h1>
+                    <button type="button" class="btn btn-outline-info" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-content" id="cart-content">
+
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        `
+        document.body.append(div);
+        let subtotal = 0;
+        let cart_content = document.getElementById('cart-content');
+        for(let item of items){
+            let innerdiv = document.createElement('div')
+            innerdiv.classList.add('card');
+            innerdiv.innerHTML=`
+            <div class="card-body">
+                <h4 class="card-title">${item.name}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">${item.size}</h6>
+                <img src="${item.picture}" width='125px' height='200px'>
+                <p>Sold by <a href="${item.store.website}" class="card-link">${item.store.name}</a> fullfilled by Thrifty©</p>
+                <h5 class="card-subtitle mb-2">$${item.price}</h5>
+                <button class="btn btn-light">Remove</button>
+            </div>
+            `
+            subtotal +=item.price
+            cart_content.append(innerdiv)
+        }
+        // -----------------subtotal
+        let subtotalele = document.createElement('h6');
+        subtotalele.innerHTML= `Sub-total: $${subtotal}.00`
+        //-------------------shipping
+        let shipping = 8;
+        let shippingele=document.createElement('h6');
+        shippingele.innerHTML=`Shipping: $${shipping} `
+        if(subtotal>49){
+            shipping=0;
+            shippingele.innerHTML+=` (- $8.00 Free Shipping)`
+        }
+        //-------------------tax
+        let tax = ((subtotal+shipping)*.08)
+        let taxele = document.createElement('h6');
+        taxele.innerHTML=`Tax: $${tax}`
+        //-------------------total
+        let total = (subtotal+tax+shipping)
+        let totalele = document.createElement('h6');
+        totalele.innerHTML=`Total: $${total}`
+
+
+        cart_content.append(subtotalele)
+        cart_content.append(shippingele)
+        cart_content.append(taxele)
+        cart_content.append(totalele)
+    }
 }
 function createUserForm(){
     let form = document.createElement('form')
