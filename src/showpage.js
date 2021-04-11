@@ -43,6 +43,15 @@ class Showpage{
         shopwomensbtn.addEventListener('click', Showpage.shopWomensPage)
     }
 
+    static cartPage = ()=>{
+        let id = Session.getCookie().id;
+        if(id){
+            //if logged in do this
+        }else{
+            //if not logged in do this
+        }
+    }
+
     static account_page(){
         let cookie = Session.getCookie();
         if(cookie.logged_in === 'true'){
