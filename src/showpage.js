@@ -43,10 +43,24 @@ class Showpage{
         shopwomensbtn.addEventListener('click', Showpage.shopWomensPage)
     }
 
-    static cartPage = ()=>{
+    static cartPage = async()=>{
         let id = Session.getCookie().id;
         if(id){
             //if logged in do this
+            //append the modal div
+            //then un-hide it
+            let items = await Cart.getCart(parseInt(id));
+            await fetch('http://localhost:3000/carts');
+            await fetch('http://localhost:3000/carts');
+            await fetch('http://localhost:3000/carts');
+            await fetch('http://localhost:3000/carts');
+            await fetch('http://localhost:3000/carts');
+            await Modals.makeCartModal(items);
+            //there is a bug bc we keep making new cart modals, only make modal if users first time making or added more to cart
+            //once cartModal is made, toggle cartModal counter to 1; if add more to cart toggle back to 0;
+            //if 1 show; if 0 make then show
+            $('#cartModal').modal('show');
+
         }else{
             //if not logged in do this
         }
