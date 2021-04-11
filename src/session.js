@@ -25,13 +25,15 @@ class Session{
             })
         }).then(resp=>resp.json()).then(json=>{
             let user = new User(json.id,json.email);
-            document.cookie = `logged_in = true`
-            document.cookie = `id = ${user.id}`
-            document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
-            // delete elements on page and show store elements
-            $('#signup-form').modal('hide'); //hide signup form after signusucces
-            //take care of the error showings
-        })
+            if(!!user.id){
+                document.cookie = `logged_in = true`
+                document.cookie = `id = ${user.id}`
+                document.cookie = `email = ${user.email}` //store id and email in the browsers cookies and say that you are logged in
+                // delete elements on page and show store elements
+                $('#signup-form').modal('hide'); //hide signup form after signusucces
+                //take care of the error showings
+            }
+        }).catch(error=>console.log(error))
     }
 
 
