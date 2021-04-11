@@ -63,6 +63,7 @@ class Showpage{
 
         }else{
             //if not logged in do this
+            this.account_page();
         }
     }
 
