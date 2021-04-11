@@ -146,8 +146,8 @@ class Modals{
                     <h4 class="centerInside">Added to cart</h4>
                 </div>
                     <div class="modal-footer">
-                    <button id="hoola" type="button" class="btn btn-default" data-dismiss="modal">Checkout</button>
-                    <button id="hoola" type="button" class="btn btn-default" data-dismiss="modal">Keep Shopping</button>
+                    <button id="goToCheckout" type="button" class="btn btn-default" data-dismiss="modal">Checkout</button>
+                    <button id="arzy" type="button" class="btn btn-default" data-dismiss="modal">Keep Shopping</button>
                 </div>
             </div>
         
