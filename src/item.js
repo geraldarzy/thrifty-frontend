@@ -146,6 +146,8 @@ class Item{
                 let modal = document.getElementById('addItemToCartModal');
                 modal.children[0].innerText =json["item"].name;
                 modal.children[1].src =json["item"].picture;
+                let goCheckout = document.getElementById('goToCheckout');
+                goCheckout.addEventListener('click',()=>{ $('#addedToCart-modal').modal('hide');Showpage.cartPage(); })
                 $('#addedToCart-modal').modal('show');
                 //maybe show how many is now in cart?
                 console.log(json)
