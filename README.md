@@ -20,6 +20,7 @@ Frontend:
 - Bootstrap
 <br><br>
 
+## Frontend README
 
 <strong>JS Classes</strong> <br> 
 Within the front end repository, there are .js files inside the src directory. Each class has a responsibility in order to try and organize up the functions into Class Static Methods.
