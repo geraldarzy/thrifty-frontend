@@ -47,13 +47,12 @@ JQuery is also used to show/hide the modals from javascript. <br>
 
 ### <strong>Contributing</strong>
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
 
 <hr>
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2021 Arzy The Arzinator
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
