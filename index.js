@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     //---- load home page right away
     Showpage.logged_in_home();
+
+    let clickforsale = document.getElementById('clickforsale');
+    clickforsale.addEventListener('click',(e)=>{
+        e.target.innerText+='!';
+    })
 });
 /*
 EDGE CASES TO TAKE CARE OF

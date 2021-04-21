@@ -49,13 +49,16 @@ class Showpage{
             //if logged in do this
             //append the modal div
             //then un-hide it
-            let items = await Cart.getCart(parseInt(id));
-            await fetch('http://localhost:3000/carts');
-            await fetch('http://localhost:3000/carts');
-            await fetch('http://localhost:3000/carts');
-            await fetch('http://localhost:3000/carts');
-            await fetch('http://localhost:3000/carts');
-            await Modals.makeCartModal(items);
+            let cart = [];
+            await fetch(`http://localhost:3000/carts/${parseInt(id)}`).then(resp=>resp.json()).then(json=>{
+                //new Item(name,price,size,color,picture,store,sex,id)
+                //alot more info that we can get from here, you can still get user info from here
+                for(let item of json.items){
+                    let newItem = new Item(item.name,item.price,item.size,item.color,item.picture,item.store,item.sex,item.id)
+                    cart.push(newItem);
+                }
+            });
+            await Modals.makeCartModal(cart);
             //there is a bug bc we keep making new cart modals, only make modal if users first time making or added more to cart
             //once cartModal is made, toggle cartModal counter to 1; if add more to cart toggle back to 0;
             //if 1 show; if 0 make then show
@@ -84,18 +87,33 @@ class Showpage{
     }
     
     static shopAllPage = async() => {
-        let items = await Item.getItems();
-        await fetch('http://localhost:3000/items') //idk why this is needed, let items does not await properly unless the fetch is also awaited
+        let items = [];
+        await fetch(`http://localhost:3000/items`).then(resp=>resp.json()).then(json=>{
+            for(let item of json){
+                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex,item.id)
+                items.push(i)
+            }
+        })
         Item.displayAllItems(items);
     }
     static shopMensPage= async() => {
-        let items = await Item.getItems('sexes/1');
-        await fetch('http://localhost:3000/items')
+        let items = [];
+        await fetch(`http://localhost:3000/sexes/1`).then(resp=>resp.json()).then(json=>{
+            for(let item of json){
+                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex,item.id)
+                items.push(i)
+            }
+        })
         Item.displayAllItems(items);
     }
     static shopWomensPage = async() => {
-        let items = await Item.getItems('sexes/2');
-        await fetch('http://localhost:3000/items')
+        let items = [];
+        await fetch(`http://localhost:3000/sexes/2`).then(resp=>resp.json()).then(json=>{
+            for(let item of json){
+                let i = new Item(item.name, item.price, item.size, item.color, item.picture,item.store,item.sex,item.id)
+                items.push(i)
+            }
+        })
         Item.displayAllItems(items);
     }
 }
